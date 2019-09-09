@@ -38,4 +38,16 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model 'Tag' do
+    object_label_method do |*args, **kwargs|
+      :tag_object_label_method
+    end
+
+    Tag.class_eval do
+      def tag_object_label_method
+        "Tag(#{self.text}) ##{self.id}"
+      end
+    end
+  end
 end

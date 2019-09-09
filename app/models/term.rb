@@ -1,16 +1,20 @@
 # == Schema Information
 #
-# Table name: tags
+# Table name: terms
 #
 #  id         :bigint           not null, primary key
-#  text       :string
+#  text       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  tag_id     :bigint
+#
+# Indexes
+#
+#  index_terms_on_tag_id  (tag_id)
 #
 
-class Tag < ApplicationRecord
-  has_one :term
-  has_and_belongs_to_many :facts
+class Term < ApplicationRecord
+  belongs_to :tag
 
   validates :text, presence: true
 end

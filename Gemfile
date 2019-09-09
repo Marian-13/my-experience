@@ -46,3 +46,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails_admin', '~> 2.0'
+
+# Annotate Rails classes with schema and routes info
+# https://github.com/ctran/annotate_models
+gem 'annotate', '~> 2.7.5', group: :development, require: false

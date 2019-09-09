@@ -52,3 +52,5 @@ gem 'rails_admin', '~> 2.0'
 gem 'annotate', '~> 2.7.5', group: :development, require: false
 
 gem 'rspec-rails', '~> 3.8.2', group: :test
+
+gem 'shoulda-matchers', group: :test

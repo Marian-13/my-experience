@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_102644) do
+ActiveRecord::Schema.define(version: 2019_09_09_105658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "facts", force: :cascade do |t|
+    t.text "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "facts_tags", id: false, force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "fact_id", null: false
+    t.index ["fact_id"], name: "index_facts_tags_on_fact_id"
+    t.index ["tag_id"], name: "index_facts_tags_on_tag_id"
+  end
 
   create_table "tags", force: :cascade do |t|
     t.string "text"
